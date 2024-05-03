@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingresskind
+spec:
+  rules:
+    - host: instagram.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: myservice
+                port:
+                  number: 80
+    - host: facebook.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: myservice
+                port:
+                  number: 80
+

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydirpod
+spec:
+  containers:
+    - image: nginx
+      name: c1
+      volumeMounts:
+        - name: htmlfolder
+          mountPath: /usr/share/nginx/html
+    - image: nginx
+      name: c2
+      volumeMounts:
+        - name: htmlfolder
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: htmlfolder
+      emptyDir: {}
+

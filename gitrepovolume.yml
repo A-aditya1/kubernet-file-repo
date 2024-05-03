@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gitrepovolume
+spec:
+  containers:
+    - image: nginx
+      name: gitrepo
+      volumeMounts:
+        - name: htmlfolder
+          mountPath: /usr/share/nginx/html
+      ports:
+        - containerPort: 80
+          protocol: TCP
+  volumes:
+    - name: htmlfolder
+      gitRepo:
+        repository: https://github.com/A-aditya1/React-game-clone.git
+        revision: aditya.adokar
+        directory: .
+# Private repo data add changes
+   volumes:
+    - name: htmlfolder
+      gitRepo:
+        repository: https://github.com/A-aditya1/React-game-clone.git
+        revision: aditya.adokar
+        auth:
+         username: "*****"
+         password: "******"
+        directory: .
